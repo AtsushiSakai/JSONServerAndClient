@@ -4,8 +4,6 @@
 # author: Atsushi Sakai
 #
 
-module json_server
-
 using HttpServer
 using JSON
 
@@ -39,6 +37,4 @@ if length(PROGRAM_FILE)!=0 &&
     contains(@__FILE__, PROGRAM_FILE)
     @time main()
 end
-
-end # module
 

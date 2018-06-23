@@ -4,17 +4,25 @@
 # author: Atsushi Sakai
 #
 
+module json_server
+
 using HttpServer
 using JSON
+
+function response_json()
+    println("json requested!!")
+    json = Dict("title"=>"Julia JSON server", "PI" => pi)
+    json["time"] = Dates.format(Dates.now(), "yyyymmddHHMMSS")
+
+    return JSON.json(json)
+end
+
 
 function main()
     println(PROGRAM_FILE," start!!")
 
-    json = Dict("title"=>"Julia JSON server", "PI" => pi)
-    json["time"] = Dates.format(Dates.now(), "yyyymmddHHMMSS")
-
     http = HttpHandler() do req::Request, res::Response
-        Response(JSON.json(json))
+        Response(response_json())
     end
 
     server = Server(http)
@@ -31,4 +39,6 @@ if length(PROGRAM_FILE)!=0 &&
     contains(@__FILE__, PROGRAM_FILE)
     @time main()
 end
+
+end # module
 

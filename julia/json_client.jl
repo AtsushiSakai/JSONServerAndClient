@@ -5,7 +5,6 @@
 #
 
 using Requests
-import JSON
 
 function main()
     println(PROGRAM_FILE," start!!")

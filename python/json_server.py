@@ -15,7 +15,14 @@ import math
 
 class MyHandler(SimpleHTTPRequestHandler):
 
-    def do_GET(self):
+    def do_POST(self):
+
+        # show request
+        print(self.headers)
+        print(vars(self))
+        content_len = int(self.headers.getheader('content-length', 0))
+        post_body = self.rfile.read(content_len)
+        print(post_body)
 
         uri = self.path
         ret = parse_qs(urlparse(uri).query, keep_blank_values=True)

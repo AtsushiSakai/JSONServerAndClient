@@ -7,18 +7,18 @@
 using Requests
 
 function main()
-    println(PROGRAM_FILE," start!!")
+
+	req = Dict("Name" => "julia json request")
+	println("request:")
+	println(req)
 
     url = "http://localhost:8000"
-    json = Requests.json(Requests.get(url))
-    println(json)
+    res = Requests.json(Requests.post(url; json = req))
+    println("response:")
+    println(res)
 
     println(PROGRAM_FILE," Done!!")
 end
 
-
-if length(PROGRAM_FILE)!=0 &&
-    contains(@__FILE__, PROGRAM_FILE)
-    @time main()
-end
+main()
 

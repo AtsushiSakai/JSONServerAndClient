@@ -1,5 +1,5 @@
 #
-# JSON Server
+# JSON Server with julia
 #
 # author: Atsushi Sakai
 #
@@ -7,22 +7,20 @@
 using HttpServer
 using JSON
 
-if VERSION > v"0.7-"
-	using Test
-	const __MAIN__ =  length(PROGRAM_FILE)!=0 && occursin(PROGRAM_FILE, @__FILE__)
-else
-	using Base.Test
-	const __MAIN__ = length(PROGRAM_FILE)!=0 && contains(@__FILE__, PROGRAM_FILE)
-end
-
-
 function response_json(req)
 	println("json requested!!")
-    json = Dict("title"=>"Julia JSON server", "PI" => pi)
-    json["time"] = Dates.format(Dates.now(), "yyyymmddHHMMSS")
-    sleep(5.0)
 
-    return JSON.json(jd)
+	# Parse input json 
+    jreq=JSON.parse(String(req.data))
+	println("request:")
+	println(jreq)
+
+    jres = Dict("title"=>"Julia JSON server", "PI" => pi)
+    jres["time"] = Dates.format(Dates.now(), "yyyymmddHHMMSS")
+	println("response:")
+	println(jres)
+
+    return JSON.json(jres)
 end
 
 
@@ -42,7 +40,5 @@ function main()
     println(PROGRAM_FILE," Done!!")
 end
 
-if __MAIN__
-    main()
-end
+main()
 

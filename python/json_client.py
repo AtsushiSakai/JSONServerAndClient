@@ -1,22 +1,29 @@
 """
 
-JSON Client in python
+JSON Client with python
 
 author: Atsushi Sakai (@Atsushi_twi)
 
 """
 
 import requests
+import json
 
 
 def main():
 
     headers = {"content-type": "application/json"}
     url = "http://localhost:8000"
-    response = requests.get(url, headers=headers)
 
-    json = response.json()
-    print(json)
+    obj = {"Type": "python json client", 123: 123}
+    json_data = json.dumps(obj)
+    print("request:")
+    print(json_data)
+    response = requests.get(url, headers=headers, data=json_data)
+
+    res = response.json()
+    print("response:")
+    print(res)
 
 
 if __name__ == '__main__':

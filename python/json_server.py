@@ -1,6 +1,6 @@
 """
 
-JSON Server in python
+JSON Server with python
 
 author: Atsushi Sakai (@Atsushi_twi)
 
@@ -17,21 +17,23 @@ class MyHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
 
-        # show request
-        print(self.headers)
-        print(vars(self))
-        content_len = int(self.headers.getheader('content-length', 0))
-        post_body = self.rfile.read(content_len)
-        print(post_body)
+        # get request
+        content_len = int(self.headers.get('content-length'))
+        req = json.loads(self.rfile.read(content_len))
+        print("request")
+        print(req)
 
         uri = self.path
         ret = parse_qs(urlparse(uri).query, keep_blank_values=True)
 
-        content = {}
-        content["title"] = "Python JSON server"
-        content["time"] = datetime.now().strftime("%Y%m%d%H%M%S")
-        content["PI"] = math.pi
-        ret = json.dumps(content)
+        res = {}
+        res["title"] = "Python JSON server"
+        res["time"] = datetime.now().strftime("%Y%m%d%H%M%S")
+        res["PI"] = math.pi
+        print("response")
+        print(res)
+
+        ret = json.dumps(res)
 
         body = bytes(ret, 'utf-8')
         self.send_response(200)

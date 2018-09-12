@@ -19,7 +19,7 @@ def main():
     json_data = json.dumps(obj)
     print("request:")
     print(json_data)
-    response = requests.get(url, headers=headers, data=json_data)
+    response = requests.post(url, headers=headers, data=json_data)
 
     res = response.json()
     print("response:")

@@ -20,8 +20,8 @@ public class JSONClient{
 	 JSONHttpLib.JSONRequest jsonreq = new JSONHttpLib.JSONRequest();
      String res = jsonreq.callPost(strPostUrl, JSON);
 
-	Map<String, Object> res_map = JSONHttpLib.JSONParser.ConvertjsonToMap(res);
-	System.out.println(res_map);
+		Map<String, Object> res_map = JSONHttpLib.JSONParser.ConvertjsonToMap(res);
+		System.out.println(res_map);
 	System.out.println(res_map.get("time"));
    }
 }

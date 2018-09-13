@@ -6,13 +6,14 @@ import javax.script.ScriptException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class JSONParser {
 
 	public static void main(String[] args) throws Exception {
 		String json = "{ \"key1\" : \"val1\", \"key2\" : \"val2\", \"key3\" : { \"ckey1\" : \"cval1\", \"ckey2\" : [ \"cval2-1\", \"cval2-2\" ] } }";
 
-		Map<String, Object> map = ConvertjsonToMap(json);
+		Map<String, Object> map = ConvertJsonToMap(json);
 
 		System.out.println(map);
 		//System.out.println((Map<String, Object>)map.get("key3"));
@@ -21,8 +22,17 @@ public class JSONParser {
 		System.out.println(map2.get("ckey2"));
 	}
 
+	public static String ConvertMapToJson(Map<String, Object> map) throws Exception {
 
-	public static Map<String, Object> ConvertjsonToMap(String json) throws Exception {
+		String json = "{"+map.entrySet().stream()
+    		.map(e -> "\""+ e.getKey() + "\"" + ":\"" +
+				   	String.valueOf(e.getValue()) + "\"")
+    		.collect(Collectors.joining(", "))+"}";
+
+		return json;
+	}
+
+	public static Map<String, Object> ConvertJsonToMap(String json) throws Exception {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("JavaScript");
 		Object obj = engine.eval(String.format("(%s)", json ));

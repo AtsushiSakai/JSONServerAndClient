@@ -15,12 +15,18 @@ public class JSONClient{
 		System.out.println("Hello World!!");
 
 		String strPostUrl = "http://localhost:8000";
-		String JSON = "{\"Type\":\"JSON client with Java\", \"test\":12345}";
+
+		Map<String, Object> data = new HashMap<String, Object>();
+    	data.put( "Type", "JSON client with Java" );
+    	data.put( "test", 12345 );
+
+		String json = JSONHttpLib.JSONParser.ConvertMapToJson(data);
+		System.out.println(json);
 
 		JSONHttpLib.JSONRequest jsonreq = new JSONHttpLib.JSONRequest();
-		String res = jsonreq.callPost(strPostUrl, JSON);
+		String res = jsonreq.callPost(strPostUrl, json);
 
-		Map<String, Object> res_map = JSONHttpLib.JSONParser.ConvertjsonToMap(res);
+		Map<String, Object> res_map = JSONHttpLib.JSONParser.ConvertJsonToMap(res);
 		System.out.println(res_map);
 	}
 }

@@ -22,7 +22,7 @@ int main(void){
 	   								{"Test", "test2"} };
 		json j_map(c_map);
 
-        res.set_content(j_map.dump(), "application/json");
+		res.set_content(j_map.dump(), "application/json");
     });
 
     svr.listen("localhost", 8000);

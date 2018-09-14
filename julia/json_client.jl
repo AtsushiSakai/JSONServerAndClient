@@ -13,8 +13,7 @@ function main()
 	println(req)
 
     url = "http://localhost:8000"
-    res = Requests.json(Requests.post(url; json = req,
-			   	))
+    res = Requests.json(Requests.post(url; json = req))
     println("response:")
     println(res)
 

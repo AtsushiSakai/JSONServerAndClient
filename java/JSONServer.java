@@ -1,9 +1,11 @@
 /*
- * JSON http clinet with java
+ * JSON http server with java
  *
  * author Atsushi Sakai
  */
 
+import java.util.HashMap;
+import java.util.Map;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -40,7 +42,19 @@ public class JSONServer {
 				System.out.println(line);
 			}
 
-            String response = "{\"Name\":\"request_inline\"}";
+			Map<String, Object> data = new HashMap<String, Object>();
+			data.put( "Type", "JSON server with Java" );
+			data.put( "test", 12345 );
+
+			String response = "";
+
+			try{
+				response = JSONHttpLib.JSONParser.ConvertMapToJson(data);
+			}
+			catch(Exception e) {
+            	System.err.println(e.getMessage());
+        	}
+			System.out.println(response);
 
 			System.out.println("response");
     		System.out.println(response);

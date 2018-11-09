@@ -9,9 +9,9 @@ Just run each code.
 
 ## Julia
 
-- [JuliaWeb/Requests\.jl: HTTP for Julians](https://github.com/JuliaWeb/Requests.jl)
+Julia 1.0 or higher
 
-- [JuliaWeb/HttpServer\.jl: Basic, non\-blocking HTTP server in Julia](https://github.com/JuliaWeb/HttpServer.jl)
+- [JuliaWeb/HTTP\.jl: HTTP for Julia](https://github.com/JuliaWeb/HTTP.jl)
 
 ## C++
 

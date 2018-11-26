@@ -19,7 +19,7 @@ end
 function get_config()
     ip = "0.0.0.0" #default
     if haskey(ENV,"SERVER_IP")
-        port = ENV["SERVER_IP"] 
+        ip = ENV["SERVER_IP"] 
     end
 
 	port = 8000 #default

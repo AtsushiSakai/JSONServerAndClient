@@ -11,6 +11,18 @@
 using namespace std;
 using json = nlohmann::json;
 
+string get_server_ip(){
+    string SERVER_IP="localhost";
+    char* env_SERVER_IP = getenv("SERVER_IP");
+    if (env_SERVER_IP != NULL){
+        SERVER_IP=string(env_SERVER_IP);
+    }
+
+    return SERVER_IP;
+}
+
+
+
 int main(void){
   	cout<<"c++ Json client start !!"<<endl;
 
@@ -22,7 +34,9 @@ int main(void){
   	cout << "Request:" << endl;
   	cout << sjson << endl;
 
-	httplib::Client cli("localhost", 8000);
+    string SERVER_IP = get_server_ip();
+
+	httplib::Client cli(SERVER_IP.c_str(), 8000);
 	auto res = cli.Post("/", sjson,  "application/json");
 
     if (res && res->status == 200) {

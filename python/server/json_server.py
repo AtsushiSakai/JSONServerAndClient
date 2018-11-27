@@ -44,7 +44,8 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 
 def main():
-    host = 'localhost'
+    print("Start python json server")
+    host = '0.0.0.0'
     port = 8000
     httpd = HTTPServer((host, port), MyHandler)
     print('serving at port', port)

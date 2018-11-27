@@ -25,6 +25,6 @@ int main(void){
 		res.set_content(j_map.dump(), "application/json");
     });
 
-    svr.listen("localhost", 8000);
+    svr.listen("0.0.0.0", 8000);
 }
 

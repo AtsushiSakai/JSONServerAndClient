@@ -5,7 +5,3 @@ expr "${0}" : "/.*" > /dev/null || cwd=`(cd "${cwd}" && pwd)`
 
 gcc ${cwd}/main.cpp -lstdc++ -lpthread -std=c++11 
 
-${cwd}/a.out
-
-rm -f ${cwd}/a.out
-

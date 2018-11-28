@@ -12,8 +12,8 @@ import os
 
 
 def get_config():
-    ip = os.environ.get('CLIENT_IP', 'localhost')
-    port = os.environ.get('CLIENT_PORT', '8000')
+    ip = os.environ.get('SERVER_IP', 'localhost')
+    port = os.environ.get('SERVER_PORT', '8000')
     return ip, port
 
 
@@ -22,6 +22,7 @@ def main():
     ip, port = get_config()
 
     url = "http://" + ip + ":" + port
+    print("url:", url)
 
     headers = {"content-type": "application/json"}
     obj = {"Type": "python json client", 123: 123}

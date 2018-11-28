@@ -9,13 +9,13 @@ using JSON
 
 function get_config()
     ip = "localhost" #default
-    if haskey(ENV,"CLIENT_IP")
-        ip = ENV["CLIENT_IP"] 
+    if haskey(ENV,"SERVER_IP")
+        ip = ENV["SERVER_IP"] 
     end
 
 	port = "8000" #default
-    if haskey(ENV,"CLIENT_PORT")
-        port = ENV["CLIENT_PORT"]
+    if haskey(ENV,"SERVER_PORT")
+        port = ENV["SERVER_PORT"]
     end
 
     println("request to ip:", ip)

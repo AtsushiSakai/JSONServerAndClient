@@ -15,6 +15,12 @@ public class JSONClient{
 		System.out.println("Start json client with java!!");
 
 		String strPostUrl = "http://localhost:8000";
+        String SERVER_IP = System.getenv("SERVER_IP");
+        String PORT="8000";
+        if(SERVER_IP != null){
+            strPostUrl="http://"+SERVER_IP+":"+PORT;
+        }
+
 		System.out.println("Url:");
 		System.out.println(strPostUrl);
 

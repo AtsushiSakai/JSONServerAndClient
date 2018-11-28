@@ -1,7 +1,7 @@
-
+TAGNAME=java_json_server
 
 docker_build:
-	docker build -t java_json_server .
+	docker build -t $(TAGNAME) .
 
 docker_run:
-	docker run -it -p 8000:8000 java_json_server 
+	docker run -it -p 8000:8000 $(TAGNAME)

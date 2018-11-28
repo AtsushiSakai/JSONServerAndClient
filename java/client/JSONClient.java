@@ -12,9 +12,11 @@ import java.util.Map;
 
 public class JSONClient{
 	public static void main(String[] args) throws Exception{
-		System.out.println("Hello World!!");
+		System.out.println("Start json client with java!!");
 
 		String strPostUrl = "http://localhost:8000";
+		System.out.println("Url:");
+		System.out.println(strPostUrl);
 
 		Map<String, Object> data = new HashMap<String, Object>();
     	data.put( "Type", "JSON client with Java" );

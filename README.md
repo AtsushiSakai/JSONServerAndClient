@@ -7,17 +7,31 @@ Just run each code.
 
 # Dependency
 
-## Julia
+## Python
 
-Julia 1.0 or higher
+Python 3.7 or higher
 
-- [JuliaWeb/HTTP\.jl: HTTP for Julia](https://github.com/JuliaWeb/HTTP.jl)
+## Java
+
+Java 8
 
 ## C++
 
 - [yhirose/cpp\-httplib: C\+\+11 header\-only HTTP/HTTPS sever library](https://github.com/yhirose/cpp-httplib)
 
 - [nlohmann/json: JSON for Modern C\+\+](https://github.com/nlohmann/json)
+
+## Julia
+
+Julia 1.0 or higher
+
+- [JuliaWeb/HTTP\.jl: HTTP for Julia](https://github.com/JuliaWeb/HTTP.jl)
+
+## Shell
+
+- [stedolan/jq: Command\-line JSON processor](https://github.com/stedolan/jq)
+
+- [jpmens/jo: JSON output from a shell](https://github.com/jpmens/jo)
 
 # Licence 
 
